@@ -5,7 +5,7 @@ class Player {
         this.element = element
         this.directionX = 0
         this.directionY = 0
-        this.speed = 5
+        this.speed = 15
         //Initial player´s position
         this.positionX = this.element.style.left = `${this.left}px`
         this.positionY = this.element.style.top = `${this.top}px`
@@ -15,7 +15,6 @@ class Player {
         // Horizontal movement of the player
         let nextPositionX = this.left + this.speed * this.directionX
         let nextPositionY = this.top + this.speed * this.directionY 
-        console.log(this.positionX)
         if ( nextPositionX >= 0 && nextPositionX <= 750 ) {
             this.left += this.speed * this.directionX
             this.element.style.left = this.left +'px'

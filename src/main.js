@@ -1,5 +1,7 @@
 const newPlayer = document.getElementById('player')
-const player = new Player ( 375, 300, newPlayer )
+let posX = Math.floor(Math.random() * 750)
+let posY = Math.floor(Math.random() * 550)
+const player = new Player ( posX, posY, newPlayer )
 
 ////////////////////// PLAYER´S CONTROLLERS /////////////////////////
 
