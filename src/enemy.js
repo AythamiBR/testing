@@ -7,7 +7,7 @@ class Enemy {
         this. speed = 10
         this.width = 25
         this.height = 25
-        this.direction = 1
+        this.direction = 1 //Initial movement for the right
         this.maxX = this.left + 250
         this.minX = this.left - 250
         this.maxY = this.top + 250
@@ -26,7 +26,7 @@ class Enemy {
     horizonatlMove() {
         if ( this.maxX < 775 && this.minX > 0 ) {
            if ( this.left >= this.maxX || this.left <= this.minX ) {
-                this.direction *= -1   // Change direction 
+                this.direction *= -1   // Change direction of movement
             }
             
             this.left += this.speed * this.direction

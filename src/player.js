@@ -1,5 +1,5 @@
 class Player {
-    constructor( x, y, element, enemy ) {
+    constructor( x, y, element, enemy ) {  //The enemy is needed in the constructor to be able to access its properties and detect the collision
         this.top = y                
         this.left = x
         this.element = element
@@ -7,7 +7,7 @@ class Player {
         this.directionX = 0
         this.directionY = 0
         this.speed = 15
-        this.width = 50
+        this.width = 50     //Need the width and height of element for collision detection
         this.height = 50
         //Initial player´s position
         this.positionX = this.element.style.left = `${this.left}px`

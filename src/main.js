@@ -60,3 +60,7 @@ let timerIdPlayer = setInterval(() => player.movePlayer(), 30)
 
 const timerIdEnemy1 = setInterval( () => enemy.horizonatlMove(), 1000)
 // const timerIdEnemy2 = setInterval( () => enemy2.verticalMove(), 1000)
+
+
+////////////////////// TIMER //////////////////////////////////////////////////////////
+
