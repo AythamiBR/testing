@@ -63,4 +63,15 @@ const timerIdEnemy1 = setInterval( () => enemy.horizonatlMove(), 1000)
 
 
 ////////////////////// TIMER //////////////////////////////////////////////////////////
-
+const htmlCountDown = document.getElementById('timer')
+const timerId = setInterval( countDown, 1000 )
+let minutes  = 5
+let seconds = minutes * 60
+function countDown () {
+    if ( seconds % 60 === 0 ) minutes--
+    seconds--
+    htmlCountDown.innerText = `${minutes} : ${seconds%60}`
+    if ( seconds % 60 < 10 ) 
+    htmlCountDown.innerText = `${minutes} : 0${seconds%60}`
+    
+}
