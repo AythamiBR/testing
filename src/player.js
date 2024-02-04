@@ -1,6 +1,6 @@
 class Player {
     constructor( x, y, element ) {
-        this.top = y  
+        this.top = y                
         this.left = x
         this.element = element
         this.directionX = 0
