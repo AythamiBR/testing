@@ -2,8 +2,8 @@
 
 const newEnemy =  document.querySelector('.enemy')
 const scenery = document.querySelector('#canvas')
-const enemy = new Enemy( 300, 300,scenery, newEnemy )
-enemy.generateEnemy()
+// const enemy = new Enemy( 300, 300,scenery, newEnemy )
+// enemy.generateEnemy()
 
 ////////////////////// TREASURE ////////////////////////////////////
 
@@ -16,7 +16,10 @@ treasure.generateTreasure()
 const newPlayer = document.getElementById('player')     //Select the element refer to the player
 let posX = Math.floor(Math.random() * 750)              //Generate a random position on the canvas
 let posY = Math.floor(Math.random() * 550)
-const player = new Player ( posX, posY, newPlayer, enemy )     //Create an instance of the player object
+const player = new Player ( posX, posY, newPlayer )     //Create an instance of the player object
+const enemy = new Enemy( 300, 300,scenery, newEnemy, player )
+enemy.generateEnemy()
+
 
 ////////////////////// PLAYER´S CONTROLLERS /////////////////////////
 
@@ -64,7 +67,7 @@ let timerIdPlayer = setInterval(() => player.movePlayer(), 30)
 // const enemy2 = new Enemy( 300, 400, scenery, newEnemy )
 // enemy2.generateEnemy()
 
-const timerIdEnemy1 = setInterval( () => enemy.verticalMove(), 1000)
+const timerIdEnemy1 = setInterval( () => enemy.followPlayer(), 1000)
 // const timerIdEnemy2 = setInterval( () => enemy2.verticalMove(), 1000)
 
 
