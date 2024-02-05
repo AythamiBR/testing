@@ -1,4 +1,4 @@
-class Enemy {
+class Enemy { // timerId -> setInterval
     constructor( x, y, parent, element) {
         this.left = x
         this.top = y

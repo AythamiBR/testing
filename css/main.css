@@ -24,8 +24,10 @@
     text-align: center;
     line-height: 50px;
     font-size: 20px;
+    font-family: 'Alfa Slab One', serif;
     color: chocolate;
     z-index: 1;
+    
 }
 
 .enemy {
@@ -33,4 +35,12 @@
     width: 25px;
     height: 25px;
     background-color: blue;
+}
+
+.treasure {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: gold;
+
 }
