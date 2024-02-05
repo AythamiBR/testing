@@ -1,20 +1,15 @@
 class Enemy { // timerId -> setInterval
-    constructor( x, y, parent, element, player) {
+    constructor( x, y, parent, player) {
         this.left = x
         this.top = y
         this.parent = parent
-        this. element = element
         this.player = player
+        this.element
+        this.timerId 
         this. speed = 20
         this.width = 25
         this.height = 25
-        this.direction = 0 //Initial movement for the right
-        //this.maxX = this.left + 250
-        // this.minX = this.left - 250
-        // this.maxY = this.top + 250
-        // this.minY = this.top - 250
-        /*****************************************/
-        
+        this.direction = 0
     }
 
     generateEnemy() {
@@ -27,25 +22,15 @@ class Enemy { // timerId -> setInterval
     }
 
     horizontalMove() {
-        let nextPositionX = this.left + this.speed * this.direction //Calculate next position 
-        if ( nextPositionX >= 775 ||  nextPositionX <= 0 ) {
-            this.direction *= -1 //Change the direction 
-        } else if ( nextPositionX <= 775 && nextPositionX >= 0 ) {
             this.left += this.speed * this.direction
             this.element.style.left = this.left + 'px' 
             this.checkCollision()
-        }
     }
 
     verticalMove() {
-        let nextPositionY = this.top + this.speed * this.direction
-        if ( nextPositionY >= 575 || nextPositionY <= 0 ) {
-            this.direction *= -1 
-        } else if ( nextPositionY <= 575 && nextPositionY >= 0 ) {
             this.top += this.speed * this.direction
             this.element.style.top = this.top + 'px' 
             this.checkCollision()
-        }
     }
 
     calculateDistanceX() {
@@ -68,26 +53,24 @@ class Enemy { // timerId -> setInterval
         let moveY = false
         let moveX = true
 
-        if ( distanceY < 0 && moveX === true ) {
+        if ( distanceY < 0 && moveX ) {
             this.direction = -1
             this.verticalMove()
             moveY = true
             moveX = false
-        }
-        if ( distanceY > 0 && moveX === true ) {
+        } else if ( distanceY > 0 && moveX ) {
             this.direction = 1
             this.verticalMove() 
             moveY = true
             moveX = false
         }
 
-        if ( distanceX < 0 && moveY === true ) {
+        if ( distanceX < 0 && moveY ) {
                 this.direction = -1
                 this.horizontalMove() 
                 moveY = false
                 moveX = true
-        }
-        if ( distanceX > 0 && moveY === true ) {
+        } else if ( distanceX > 0 && moveY ) {
             this.direction = 1
             this.horizontalMove()
             moveY = false
@@ -96,6 +79,8 @@ class Enemy { // timerId -> setInterval
         
     }
 
+    stopPlayerInterval() {}
+
 
 
     checkCollision(){
@@ -103,7 +88,7 @@ class Enemy { // timerId -> setInterval
             (this.left + this.width) > this.player.left &&  
             this.top < (this.player.top + this.player.height) &&
             (this.top + this.height) > this.player.top){
-              console.log('Ouch!!')
+                console.log('Ouch!!')
             }
      }
 }

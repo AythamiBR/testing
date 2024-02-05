@@ -17,8 +17,10 @@ const newPlayer = document.getElementById('player')     //Select the element ref
 let posX = Math.floor(Math.random() * 750)              //Generate a random position on the canvas
 let posY = Math.floor(Math.random() * 550)
 const player = new Player ( posX, posY, newPlayer )     //Create an instance of the player object
-const enemy = new Enemy( 300, 300,scenery, newEnemy, player )
+const enemy = new Enemy( 300, 300,scenery, player )
+const enemy2 = new Enemy ( 400, 500, scenery, player )
 enemy.generateEnemy()
+enemy2.generateEnemy()
 
 
 ////////////////////// PLAYER´S CONTROLLERS /////////////////////////
@@ -52,7 +54,7 @@ window.addEventListener('keyup', (e)=>{
     if ( e.key === "w" || e.key === "W" || e.key === "Arrowup" ||
         e.key === "s" || e.key === "S" || e.key === "ArrowDown" ) player.directionY = 0
     else if ( e.key === "a" || e.key === "A" || e.key === "ArrowLeft" ||
-    e.key === "d" || e.key === "timerIdEnemy1D" || e.key === "ArrowRight" ) player.directionX = 0
+    e.key === "d" || e.key === "D" || e.key === "ArrowRight" ) player.directionX = 0
 })
 
 ////////////////////// REPEAT THE MOVEMENT OF PLAYER ////////////////////////////////
@@ -60,14 +62,15 @@ window.addEventListener('keyup', (e)=>{
 //Function controller the movement of character player
 //The callback function with arrow refers to the instance function movePlayer()
 //Allows access to the function
-let timerIdPlayer = setInterval(() => player.movePlayer(), 30)
+player.timerId = setInterval(() => player.movePlayer(), 25)
 
 // **********  FIX: PROBLEMS WITH THE MOVEMENT IF ENEMEY 2 ***************/
 
 // const enemy2 = new Enemy( 300, 400, scenery, newEnemy )
 // enemy2.generateEnemy()
 
-const timerIdEnemy1 = setInterval( () => enemy.followPlayer(), 1000)
+enemy.timerId = setInterval( () => enemy.followPlayer(), 500)
+enemy.timerId = setInterval( () => enemy2.followPlayer(), 1000)
 // const timerIdEnemy2 = setInterval( () => enemy2.verticalMove(), 1000)
 
 
