@@ -70,7 +70,8 @@ player.timerId = setInterval(() => player.movePlayer(), 25)
 // enemy2.generateEnemy()
 
 enemy.timerId = setInterval( () => enemy.followPlayer(), 500)
-enemy.timerId = setInterval( () => enemy2.followPlayer(), 1000)
+enemy2.timerId = setInterval( () => enemy2.followPlayer(), 1000)
+console.log(enemy.timerId)
 // const timerIdEnemy2 = setInterval( () => enemy2.verticalMove(), 1000)
 
 

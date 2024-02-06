@@ -10,6 +10,7 @@ class Enemy { // timerId -> setInterval
         this.width = 25
         this.height = 25
         this.direction = 0
+        this.colision
     }
 
     generateEnemy() {
@@ -79,16 +80,15 @@ class Enemy { // timerId -> setInterval
         
     }
 
-    stopPlayerInterval() {}
-
-
-
     checkCollision(){
         if( this.left < (this.player.left + this.player.width) &&
             (this.left + this.width) > this.player.left &&  
             this.top < (this.player.top + this.player.height) &&
             (this.top + this.height) > this.player.top){
-                console.log('Ouch!!')
+                clearInterval(this.timerId)
+                setTimeout(() => {
+                setInterval(this.timerId = setInterval(()=>{ this.followPlayer()}, 1000),24)
+                }, 2000);
             }
-     }
+        }
 }
